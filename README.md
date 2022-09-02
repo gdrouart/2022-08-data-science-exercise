@@ -8,7 +8,7 @@
 1. When going through the exercise, create git commits, making a history of changes that can be inspected later.
 1. The exercise should be completed in Python 3.8+.
 1. Your cloned git repository should be structured and populated using standard Python practice for software, which other people might reuse.
-1. At the end of the exercise, you will __have__ to push your code to your repository and let us know where to look. You can also push regularly before that if you want.
+1. At the end of the exercise, you will __have__ to push your code to your GitHUB repository and share it with the two people who contributed to the original repo. You can also push regularly before that if you want.
 
 
 ## Details
