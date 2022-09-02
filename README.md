@@ -14,7 +14,7 @@
 ## Details
 
 The two objectives of this exercise are:
-1. Produce cleaned and consolidated data files suitable for quick loading but another process (which is not part of this exercise).
+1. Produce cleaned and consolidated data files suitable for quick loading by another process (which is not part of this exercise).
 1. Produce a visualisation showing significant events/features in the data. 
 
 ### Objective 1
