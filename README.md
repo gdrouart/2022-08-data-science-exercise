@@ -37,4 +37,4 @@ For the visualisation, think about a situation, where you have to explain and de
 What would you show and how would you show it? 
 Given that we have actually not told you anything about what the data actually is, this really needs to concentrate on what you can derive from looking at the data, i.e. plotting it in various ways.
 
-The software you use to produce the visualisation is up to you.
+The python package you use to produce the visualisation is up to you.
