@@ -2,3 +2,6 @@
 /setup/
 *pdf
 *ipynb
+source/__pycache__
+source/*pdf
+.ipynb_checkpoints
