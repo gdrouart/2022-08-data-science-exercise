@@ -13,7 +13,9 @@ def read_folder(foldername):
         df = pd.read_csv(filename, index_col=None, header = 0)
         list_file.append(df)
 
-    return pd.concat(list_file, axis=0, ignore_index=True)
+    frame = pd.concat(list_file, axis=0, ignore_index=True) 
+    frame = frame.sort_values('observe_time')
+    return frame
 
 def reduce_hourly(frame):
     """
