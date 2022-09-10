@@ -51,13 +51,16 @@ def reduce_hourly(frame):
     print('There are {} Nan values in the hourly cadence file'.format(hourly_frame[hourly_frame['a1_0'].isna()].size))
     print('No panic, this might be normal, but you might want to double check!')
 
+    print("")
+    print("Writing the hourly cadence into a file")
+    hourly_frame.to_csv('{}_{}_hourly.csv'.format(*timestamp_str),header=True,index=False)
+
     return hourly_frame
 
 def main():
     data = read_folder("../data/2022-06/")
     data_hourly = reduce_hourly(data)
     print('done for June 2022')
-
 
 if __name__ == "__main__":
     main()
