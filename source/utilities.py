@@ -21,6 +21,10 @@ def read_folder(foldername):
         list_file.append(df)
 
     frame = pd.concat(list_file, axis=0, ignore_index=True)
+
+    # making sure that the frame is only float - excepted first column (Cheeky Kevin)
+    # TODO: check with pipeline if all parameters are required to be finite
+    frame.iloc[:,1:]=frame.iloc[:,1:].apply(pd.to_numeric,errors='coerce')
     return frame
 
 def reduce_hourly(frame):
@@ -33,6 +37,7 @@ def reduce_hourly(frame):
 
     # create the hourly cadence dataframe
     hourly_frame=pd.DataFrame(columns=frame.columns)
+
 
     # create the 1h scaling from existing dataframe
     scale=pd.date_range('{}-{}'.format(*[tmp_timestamp[0].year,tmp_timestamp[0].month]),
@@ -75,7 +80,7 @@ def reduce_hourly(frame):
 def main():
     data = read_folder("../data/2022-08/")
     data_hourly = reduce_hourly(data)
-    print('done for August 2022')
+    print('test done for August 2022')
 
 if __name__ == "__main__":
     main()
