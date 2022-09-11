@@ -5,6 +5,7 @@ import os
 import math
 
 from source.graph import visualise_parameters
+from source.graph import visualise_month
 
 def read_folder(foldername):
     """Read the entire month folder and return a dataframe"""
@@ -62,16 +63,18 @@ def reduce_hourly(frame):
                 hourly_frame.loc[hourly_frame.index[-1],('observe_time')]=elem
             else:                
                 hourly_frame=pd.concat([hourly_frame,pd.Series([np.nan])])
-                hourly_frame.loc[hourly_frame.index[-1],('observe_time')]=elem
+                hourly_frame.iat[-1,0]=elem
 
     # produce graphics it is all good
     timestamp_str=[tmp_timestamp.dt.year[0],tmp_timestamp.dt.month[0]]
     visualise_parameters(frame,filename='full_frame_{:d}-{:d}_parameters.pdf'.format(*timestamp_str))
     visualise_parameters(hourly_frame,filename='hourly_frame_{:d}-{:d}_parameters.pdf'.format(*timestamp_str))
     print('Files for full frame and hourly candence. Check for white stripes for NaN!')
+    visualise_month(frame,hourly_frame,filename='{:d}-{:d}_data.pdf'.format(*timestamp_str),parameter='a1_0')
 
     # code check for missing values:
     print('There are {} Nan values in the hourly cadence file.'.format(hourly_frame[hourly_frame['a1_0'].isna()].size))
+    print('This represents {} lines'.format(hourly_frame[hourly_frame['a1_0'].isna()].size/701))
     print('No panic, this might be normal, but you might want to double check!')
 
     print("")
