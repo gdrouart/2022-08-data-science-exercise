@@ -16,7 +16,10 @@ def read_folder(foldername):
     list_file = []
     for filename in all_files:
         df = pd.read_csv(filename, index_col=None, header = 0, on_bad_lines='skip')
-        size_date=check_len(df['observe_time'])
+        try:
+            size_date=check_len(df['observe_time'])
+        except:
+            print(filename)
         df=df[size_date>24]
         list_file.append(df)
 
