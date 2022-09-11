@@ -4,7 +4,7 @@ import glob
 import os
 import math
 
-from graph import visualise_parameters
+from source.graph import visualise_parameters
 
 def read_folder(foldername):
     """Read the entire month folder and return a dataframe"""
